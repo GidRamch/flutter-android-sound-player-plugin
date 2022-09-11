@@ -160,6 +160,19 @@ class _MyAppState extends State<MyApp> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                        _soundPlayerPlugin.playCustomSound(
+                          'assets/ringtones/beep-2.mp3',
+                          Channel.Alarm,
+                          'sound_player',
+                        );
+                      },
+                      child: const Text('Custom Sound Alarm'),
+                    ),
+                    const SizedBox(
+                      width: 12,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
                         _soundPlayerPlugin.stopSound();
                       },
                       child: const Text('Stop'),

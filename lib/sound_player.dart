@@ -16,6 +16,18 @@ class SoundPlayer {
     );
   }
 
+  Future<void> playCustomSound(
+    String uriString,
+    Channel volumeChannel,
+    String packageName,
+  ) async {
+    await SoundPlayerPlatform.instance.playCustomSound(
+      uriString,
+      volumeChannel,
+      packageName,
+    );
+  }
+
   Future<void> stopSound() async {
     await SoundPlayerPlatform.instance.stopSound();
   }
