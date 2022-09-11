@@ -21,22 +21,18 @@ class MethodChannelSoundPlayer extends SoundPlayerPlatform {
   Future<void> playCustomSound(
     String uriString,
     Channel volumeChannel,
-    String packageName,
   ) async {
     if (volumeChannel == Channel.Alarm) {
       await methodChannel.invokeMethod<String>('playCustomSound_Alarm', {
         'uriString': uriString,
-        'packageName': packageName,
       });
     } else if (volumeChannel == Channel.Notification) {
       await methodChannel.invokeMethod<String>('playCustomSound_Notification', {
         'uriString': uriString,
-        'packageName': packageName,
       });
     } else if (volumeChannel == Channel.Media) {
       await methodChannel.invokeMethod<String>('playCustomSound_Media', {
         uriString: uriString,
-        packageName: packageName,
       });
     }
   }

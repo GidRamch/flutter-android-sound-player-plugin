@@ -38,7 +38,6 @@ abstract class SoundPlayerPlatform extends PlatformInterface {
   Future<void> playCustomSound(
     String uriString,
     Channel volumeChannel,
-    String packageName,
   ) async {
     throw UnimplementedError('playCustomSound() has not been implemented.');
   }

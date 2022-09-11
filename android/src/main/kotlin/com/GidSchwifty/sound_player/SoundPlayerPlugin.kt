@@ -78,7 +78,6 @@ class SoundPlayerPlugin : FlutterPlugin, MethodCallHandler {
 
     private fun playCustomSound(
         uriString: String,
-        packageName: String,
         usage: Int,
         result: Result
     ) {
@@ -95,7 +94,7 @@ class SoundPlayerPlugin : FlutterPlugin, MethodCallHandler {
             }
 
             val assetPath: String =
-                binding?.flutterAssets?.getAssetFilePathBySubpath(uriString, packageName)
+                binding?.flutterAssets?.getAssetFilePathBySubpath(uriString, "sound_player")
                     ?: return
 
             val afd: AssetFileDescriptor =
@@ -136,32 +135,21 @@ class SoundPlayerPlugin : FlutterPlugin, MethodCallHandler {
         } else if (call.method == "playCustomSound_Alarm") {
             playCustomSound(
                 call?.argument<String>("uriString") ?: "",
-                call?.argument<String>("packageName") ?: "",
                 AudioAttributes.USAGE_ALARM,
                 result
             );
         } else if (call.method == "playCustomSound_Notification") {
-            call.argument<String>("uriString")?.let {
-                call.argument<String>("packageName")?.let {
-                    playCustomSound(
-                        it,
-                        it,
-                        AudioAttributes.USAGE_NOTIFICATION,
-                        result
-                    )
-                }
-            };
+            playCustomSound(
+                call?.argument<String>("uriString") ?: "",
+                AudioAttributes.USAGE_NOTIFICATION,
+                result
+            );
         } else if (call.method == "playCustomSound_Media") {
-            call.argument<String>("uriString")?.let {
-                call.argument<String>("packageName")?.let {
-                    playCustomSound(
-                        it,
-                        it,
-                        AudioAttributes.USAGE_MEDIA,
-                        result
-                    )
-                }
-            };
+            playCustomSound(
+                call?.argument<String>("uriString") ?: "",
+                AudioAttributes.USAGE_MEDIA,
+                result
+            );
         } else if (call.method == "playAlarm_AlarmChannel") {
             playSound(
                 Settings.System.DEFAULT_ALARM_ALERT_URI,

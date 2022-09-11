@@ -163,7 +163,6 @@ class _MyAppState extends State<MyApp> {
                         _soundPlayerPlugin.playCustomSound(
                           'assets/ringtones/beep-2.mp3',
                           Channel.Alarm,
-                          'sound_player',
                         );
                       },
                       child: const Text('Custom Sound Alarm'),
