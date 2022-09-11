@@ -22,15 +22,15 @@ class MethodChannelSoundPlayer extends SoundPlayerPlatform {
     String uriString,
     Channel volumeChannel,
   ) async {
-    if (volumeChannel == Channel.Alarm) {
+    if (volumeChannel == Channel.alarm) {
       await methodChannel.invokeMethod<String>('playCustomSound_Alarm', {
         'uriString': uriString,
       });
-    } else if (volumeChannel == Channel.Notification) {
+    } else if (volumeChannel == Channel.notification) {
       await methodChannel.invokeMethod<String>('playCustomSound_Notification', {
         'uriString': uriString,
       });
-    } else if (volumeChannel == Channel.Media) {
+    } else if (volumeChannel == Channel.media) {
       await methodChannel.invokeMethod<String>('playCustomSound_Media', {
         uriString: uriString,
       });
@@ -42,21 +42,21 @@ class MethodChannelSoundPlayer extends SoundPlayerPlatform {
     Channel ringtoneChannel,
     Channel volumeChannel,
   ) async {
-    if (volumeChannel == Channel.Ringtone) {
-      if (ringtoneChannel == Channel.Ringtone) {
+    if (volumeChannel == Channel.ringtone) {
+      if (ringtoneChannel == Channel.ringtone) {
         await methodChannel
             .invokeMethod<String>('playRingtone_RingtoneChannel');
-      } else if (ringtoneChannel == Channel.Notification) {
+      } else if (ringtoneChannel == Channel.notification) {
         await methodChannel
             .invokeMethod<String>('playNotification_RingtoneChannel');
       } else {
         await methodChannel.invokeMethod<String>('playAlarm_RingtoneChannel');
       }
-    } else if (volumeChannel == Channel.Notification) {
-      if (ringtoneChannel == Channel.Ringtone) {
+    } else if (volumeChannel == Channel.notification) {
+      if (ringtoneChannel == Channel.ringtone) {
         await methodChannel
             .invokeMethod<String>('playRingtone_NotificationChannel');
-      } else if (ringtoneChannel == Channel.Notification) {
+      } else if (ringtoneChannel == Channel.notification) {
         await methodChannel
             .invokeMethod<String>('playNotification_NotificationChannel');
       } else {
@@ -64,9 +64,9 @@ class MethodChannelSoundPlayer extends SoundPlayerPlatform {
             .invokeMethod<String>('playAlarm_NotificationChannel');
       }
     } else {
-      if (ringtoneChannel == Channel.Ringtone) {
+      if (ringtoneChannel == Channel.ringtone) {
         await methodChannel.invokeMethod<String>('playRingtone_AlarmChannel');
-      } else if (ringtoneChannel == Channel.Notification) {
+      } else if (ringtoneChannel == Channel.notification) {
         await methodChannel
             .invokeMethod<String>('playNotification_AlarmChannel');
       } else {

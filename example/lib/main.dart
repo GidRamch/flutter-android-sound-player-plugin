@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: Text('Plugin example app $_platformVersion'),
         ),
         body: Center(
           child: SingleChildScrollView(
@@ -67,7 +67,9 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Alarm, Channel.Alarm);
+                          Channel.alarm,
+                          Channel.alarm,
+                        );
                       },
                       child: const Text('C: Alarm, R: Alarm'),
                     ),
@@ -77,7 +79,9 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Ringtone, Channel.Alarm);
+                          Channel.ringtone,
+                          Channel.alarm,
+                        );
                       },
                       child: const Text('C: Alarm, R: Ringtone'),
                     ),
@@ -87,7 +91,9 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Notification, Channel.Alarm);
+                          Channel.notification,
+                          Channel.alarm,
+                        );
                       },
                       child: const Text('C: Alarm, R: Notification'),
                     ),
@@ -99,7 +105,9 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Alarm, Channel.Ringtone);
+                          Channel.alarm,
+                          Channel.ringtone,
+                        );
                       },
                       child: const Text('C: Ringtone, R: Alarm'),
                     ),
@@ -109,7 +117,9 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Ringtone, Channel.Ringtone);
+                          Channel.ringtone,
+                          Channel.ringtone,
+                        );
                       },
                       child: const Text('C: Ringtone, R: Ringtone'),
                     ),
@@ -119,7 +129,7 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Notification, Channel.Ringtone);
+                            Channel.notification, Channel.ringtone);
                       },
                       child: const Text('C: Ringtone, R: Notification'),
                     ),
@@ -131,7 +141,7 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Alarm, Channel.Notification);
+                            Channel.alarm, Channel.notification);
                       },
                       child: const Text('C: Notification, R: Alarm'),
                     ),
@@ -141,7 +151,7 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Ringtone, Channel.Notification);
+                            Channel.ringtone, Channel.notification);
                       },
                       child: const Text('C: Notification, R: Ringtone'),
                     ),
@@ -151,7 +161,7 @@ class _MyAppState extends State<MyApp> {
                     ElevatedButton(
                       onPressed: () {
                         _soundPlayerPlugin.playSound(
-                            Channel.Notification, Channel.Notification);
+                            Channel.notification, Channel.notification);
                       },
                       child: const Text('C: Notification, R: Notification'),
                     ),
@@ -162,7 +172,7 @@ class _MyAppState extends State<MyApp> {
                       onPressed: () {
                         _soundPlayerPlugin.playCustomSound(
                           'assets/ringtones/beep-2.mp3',
-                          Channel.Alarm,
+                          Channel.alarm,
                         );
                       },
                       child: const Text('Custom Sound Alarm'),

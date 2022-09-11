@@ -1,6 +1,6 @@
 enum Channel {
-  Ringtone,
-  Notification,
-  Alarm,
-  Media,
+  ringtone,
+  notification,
+  alarm,
+  media,
 }
