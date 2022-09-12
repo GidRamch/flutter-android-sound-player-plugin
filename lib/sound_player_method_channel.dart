@@ -32,7 +32,7 @@ class MethodChannelSoundPlayer extends SoundPlayerPlatform {
       });
     } else if (volumeChannel == Channel.media) {
       await methodChannel.invokeMethod<String>('playCustomSound_Media', {
-        uriString: uriString,
+        'uriString': uriString,
       });
     }
   }
