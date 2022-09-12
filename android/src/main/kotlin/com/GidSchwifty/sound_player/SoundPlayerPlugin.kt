@@ -168,6 +168,24 @@ class SoundPlayerPlugin : FlutterPlugin, MethodCallHandler {
                 AudioAttributes.USAGE_ALARM,
                 result
             );
+        } else if (call.method == "playAlarm_MediaChannel") {
+            playSound(
+                Settings.System.DEFAULT_ALARM_ALERT_URI,
+                AudioAttributes.USAGE_MEDIA,
+                result
+            );
+        } else if (call.method == "playNotification_MediaChannel") {
+            playSound(
+                Settings.System.DEFAULT_NOTIFICATION_URI,
+                AudioAttributes.USAGE_MEDIA,
+                result
+            );
+        } else if (call.method == "playRingtone_MediaChannel") {
+            playSound(
+                Settings.System.DEFAULT_RINGTONE_URI,
+                AudioAttributes.USAGE_MEDIA,
+                result
+            );
         } else if (call.method == "playAlarm_RingtoneChannel") {
             playSound(
                 Settings.System.DEFAULT_ALARM_ALERT_URI,

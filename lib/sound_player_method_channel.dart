@@ -49,7 +49,7 @@ class MethodChannelSoundPlayer extends SoundPlayerPlatform {
       } else if (ringtoneChannel == Channel.notification) {
         await methodChannel
             .invokeMethod<String>('playNotification_RingtoneChannel');
-      } else {
+      } else if (ringtoneChannel == Channel.alarm) {
         await methodChannel.invokeMethod<String>('playAlarm_RingtoneChannel');
       }
     } else if (volumeChannel == Channel.notification) {
@@ -59,18 +59,27 @@ class MethodChannelSoundPlayer extends SoundPlayerPlatform {
       } else if (ringtoneChannel == Channel.notification) {
         await methodChannel
             .invokeMethod<String>('playNotification_NotificationChannel');
-      } else {
+      } else if (ringtoneChannel == Channel.alarm) {
         await methodChannel
             .invokeMethod<String>('playAlarm_NotificationChannel');
       }
-    } else {
+    } else if (volumeChannel == Channel.alarm) {
       if (ringtoneChannel == Channel.ringtone) {
         await methodChannel.invokeMethod<String>('playRingtone_AlarmChannel');
       } else if (ringtoneChannel == Channel.notification) {
         await methodChannel
             .invokeMethod<String>('playNotification_AlarmChannel');
-      } else {
+      } else if (ringtoneChannel == Channel.alarm) {
         await methodChannel.invokeMethod<String>('playAlarm_AlarmChannel');
+      }
+    } else if (volumeChannel == Channel.media) {
+      if (ringtoneChannel == Channel.ringtone) {
+        await methodChannel.invokeMethod<String>('playRingtone_MediaChannel');
+      } else if (ringtoneChannel == Channel.notification) {
+        await methodChannel
+            .invokeMethod<String>('playNotification_MediaChannel');
+      } else if (ringtoneChannel == Channel.alarm) {
+        await methodChannel.invokeMethod<String>('playAlarm_MediaChannel');
       }
     }
   }
